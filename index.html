@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ghosterx Digital | Server Voice Chat Terpercaya</title>
+  <meta name="description" content="Ghosterx Digital – penyedia server TeamSpeak3, Mumble, dan TeaSpeak terpercaya. Harga terjangkau, setup mudah, support responsif.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --teal: #14B8A6;
+      --teal-dark: #0f9e8e;
+      --teal-deeper: #0f8b7a;
+      --bg: #ffffff;
+      --text: #1e2a3e;
+      --text-muted: #4b5563;
+      --text-heading: #0f2c24;
+      --border: #e9edf2;
+      --card-bg: #ffffff;
+      --card-border: #eef2ea;
+      --section-bg: #f8faf7;
+      --navbar-bg: rgba(255,255,255,0.92);
+    }
+    body.dark-mode {
+      --bg: #121826;
+      --text: #e0e4e8;
+      --text-muted: #94a3b8;
+      --text-heading: #e0e4e8;
+      --border: #2a3a3a;
+      --card-bg: #1e2936;
+      --card-border: #2d3a4a;
+      --section-bg: #1a2332;
+      --navbar-bg: rgba(18,24,38,0.92);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ======= NAVBAR ======= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background-color: var(--navbar-bg);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: -0.2px;
+      background: linear-gradient(135deg, #14B8A6, #0f8b7a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .logo i { font-size: 1.1rem; color: #14B8A6; background: none; -webkit-background-clip: unset; background-clip: unset; }
+    .nav-controls { display: flex; align-items: center; gap: 16px; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text);
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--teal); background: none; border: none; }
+    .darkmode-toggle {
+      background: rgba(20,184,166,0.1);
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--teal);
+      transition: 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+    }
+    .darkmode-toggle:hover { background: rgba(20,184,166,0.2); transform: scale(1.05); }
+
+    /* ======= HERO ======= */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 0 50px;
+    }
+    .hero-content { flex: 1; min-width: 280px; }
+    .hero-content .greeting {
+      font-size: 1rem;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-content h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--text-heading);
+    }
+    .hero-content h1 span { color: var(--teal); }
+    .hero-content .subtitle {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .hero-content .description {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.65;
+      max-width: 480px;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--teal);
+      color: white;
+      padding: 13px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal);
+      padding: 13px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      border: 2px solid var(--teal);
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(20,184,166,0.08); transform: translateY(-2px); }
+
+    /* Hero stats badges */
+    .hero-stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+    .stat-badge {
+      background: var(--section-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 12px 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .stat-badge .stat-icon { font-size: 1.3rem; color: var(--teal); }
+    .stat-badge .stat-num { font-weight: 700; font-size: 1.1rem; color: var(--text-heading); display: block; line-height: 1; }
+    .stat-badge .stat-lbl { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* Hero illustration */
+    .hero-illustration {
+      flex: 0 0 360px;
+      display: flex;
+      justify-content: center;
+    }
+    .server-card-visual {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 32px;
+      padding: 32px;
+      width: 320px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .server-card-visual::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(20,184,166,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .server-card-visual::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(20,184,166,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .vc-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 24px;
+    }
+    .vc-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, #14B8A6, #0f8b7a);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: white;
+    }
+    .vc-title { font-weight: 700; font-size: 1rem; color: var(--text-heading); }
+    .vc-sub { font-size: 0.8rem; color: var(--text-muted); }
+    .vc-status-dot {
+      width: 10px; height: 10px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+      animation: pulse-green 2s infinite;
+    }
+    @keyframes pulse-green {
+      0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+    }
+    .vc-users {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .vc-user {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--section-bg);
+      padding: 8px 12px;
+      border-radius: 12px;
+    }
+    .vc-user-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; color: white;
+    }
+    .vc-user-name { font-size: 0.85rem; font-weight: 500; color: var(--text); flex: 1; }
+    .vc-user-icon { font-size: 0.85rem; color: var(--teal); }
+    .vc-ping {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--section-bg);
+      padding: 8px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .vc-ping span { color: #22c55e; font-weight: 700; }
+
+    /* ======= SECTIONS ======= */
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 44px;
+      color: var(--text-heading);
+      display: inline-block;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px; left: 0;
+      width: 60px; height: 4px;
+      background: var(--teal);
+      border-radius: 4px;
+    }
+    body.dark-mode .section-title { color: var(--teal); }
+
+    /* ======= PRODUCTS ======= */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 28px;
+      transition: 0.25s;
+      display: flex; flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-deeper));
+      opacity: 0;
+      transition: 0.25s;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border-color: rgba(20,184,166,0.3);
+    }
+    .product-card:hover::before { opacity: 1; }
+    .product-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.72rem; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px;
+      background: rgba(20,184,166,0.12);
+      color: var(--teal);
+      margin-bottom: 18px;
+      width: fit-content;
+    }
+    .product-logo-wrap {
+      width: 72px; height: 72px;
+      background: var(--section-bg);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      border: 1px solid var(--card-border);
+      overflow: hidden;
+    }
+    .product-logo-wrap img { width: 52px; height: 52px; object-fit: contain; }
+    .product-logo-wrap .product-icon-fallback {
+      font-size: 1.8rem; color: var(--teal);
+    }
+    .product-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+    .product-desc {
+      font-size: 0.88rem; color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px; flex: 1;
+    }
+    .product-features {
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex; flex-direction: column; gap: 7px;
+    }
+    .product-features li {
+      font-size: 0.85rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .product-features li i { color: var(--teal); font-size: 0.75rem; }
+    .product-price-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .product-price {
+      font-weight: 700; font-size: 1.2rem;
+      color: var(--teal);
+    }
+    .product-price-label { font-size: 0.78rem; color: var(--text-muted); }
+    .btn-shopee {
+      background: #EE4D2D;
+      color: white;
+      padding: 11px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      text-decoration: none;
+      transition: 0.2s;
+      width: 100%;
+    }
+    .btn-shopee:hover { background: #d63d1f; transform: translateY(-2px); }
+
+    /* ======= WHY US ======= */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: 0.25s;
+    }
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px rgba(0,0,0,0.07); }
+    .why-icon {
+      width: 56px; height: 56px;
+      background: rgba(20,184,166,0.1);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.5rem; color: var(--teal);
+    }
+    .why-title {
+      font-weight: 700; font-size: 1rem;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+    .why-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+
+    /* ======= TESTIMONY / STATS ======= */
+    .store-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .store-stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .store-stat-card .big-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .store-stat-card .big-label {
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .review-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 24px;
+    }
+    .review-stars { color: #f59e0b; margin-bottom: 10px; font-size: 0.9rem; }
+    .review-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+    .review-author { font-weight: 600; font-size: 0.85rem; color: var(--text-heading); display: flex; align-items: center; gap: 8px; }
+    .review-author-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-deeper));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; color: white; font-weight: 700;
+    }
+
+    /* ======= HOW TO ORDER ======= */
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), rgba(20,184,166,0.2));
+      z-index: 0;
+    }
+    .step-item {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 0 12px;
+      position: relative; z-index: 1;
+    }
+    .step-num {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-deeper));
+      color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.1rem;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 16px rgba(20,184,166,0.3);
+    }
+    .step-title { font-weight: 700; font-size: 0.95rem; color: var(--text-heading); margin-bottom: 8px; }
+    .step-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+
+    /* ======= CTA SECTION ======= */
+    .cta-section {
+      background: linear-gradient(135deg, #0f2c24 0%, #1a4a3a 50%, #0f3d30 100%);
+      border-radius: 32px;
+      padding: 56px 48px;
+      text-align: center;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(20,184,166,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(20,184,166,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem; font-weight: 700;
+      color: #ffffff; margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem; line-height: 1.6;
+      max-width: 480px; margin: 0 auto 32px;
+      position: relative; z-index: 1;
+    }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+    .btn-cta-wa {
+      background: #25D366;
+      color: white; padding: 14px 30px; border-radius: 40px;
+      font-weight: 600; font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 9px;
+      text-decoration: none; transition: 0.2s;
+    }
+    .btn-cta-wa:hover { background: #1db954; transform: translateY(-2px); }
+    .btn-cta-shopee {
+      background: #EE4D2D;
+      color: white; padding: 14px 30px; border-radius: 40px;
+      font-weight: 600; font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 9px;
+      text-decoration: none; transition: 0.2s;
+    }
+    .btn-cta-shopee:hover { background: #d63d1f; transform: translateY(-2px); }
+
+    /* ======= FAQ ======= */
+    .faq-list { display: flex; flex-direction: column; gap: 14px; }
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 18px 22px;
+      font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; color: var(--text-heading);
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none;
+    }
+    .faq-question i { color: var(--teal); transition: 0.3s; font-size: 0.9rem; }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s;
+      padding: 0 22px;
+      font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;
+    }
+    .faq-item.open .faq-answer { max-height: 200px; padding: 0 22px 18px; }
+
+    /* ======= FOOTER ======= */
+    footer {
+      text-align: center;
+      padding: 36px 24px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    footer .footer-links {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    footer .footer-links a { color: var(--text-muted); text-decoration: none; transition: 0.2s; }
+    footer .footer-links a:hover { color: var(--teal); }
+    footer .footer-social { display: flex; gap: 18px; justify-content: center; margin-bottom: 18px; }
+    footer .footer-social a { font-size: 1.4rem; color: var(--teal); transition: 0.2s; }
+    footer .footer-social a:hover { color: var(--teal-dark); transform: scale(1.1); }
+
+    /* ======= BACK TO TOP ======= */
+    .back-to-top {
+      position: fixed; bottom: 30px; right: 30px;
+      width: 50px; height: 50px;
+      background: var(--teal); color: white;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 1.3rem;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: all 0.3s ease; z-index: 999;
+      box-shadow: 0 4px 16px rgba(20,184,166,0.4);
+    }
+    .back-to-top:hover { background: var(--teal-dark); transform: translateY(-3px); }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .store-stats { grid-template-columns: repeat(2, 1fr); }
+      .review-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-row { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .steps-row::before { display: none; }
+    }
+    @media (max-width: 880px) {
+      .navbar { flex-direction: row; }
+      .nav-links {
+        display: none; width: 100%; flex-direction: column;
+        background: var(--bg); padding: 20px 0; gap: 18px;
+        margin-top: 18px; border-top: 1px solid var(--border);
+      }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+      .hero { flex-direction: column-reverse; text-align: center; }
+      .hero-content .greeting { justify-content: center; }
+      .hero-content .description { margin: 0 auto 32px; }
+      .hero-cta { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-illustration { flex: none; width: 100%; }
+      .server-card-visual { width: 100%; max-width: 340px; margin: 0 auto; }
+      .section-title { display: block; text-align: center; }
+      .section-title:after { left: 50%; transform: translateX(-50%); }
+      .cta-section { padding: 40px 24px; }
+    }
+    @media (max-width: 640px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .store-stats { grid-template-columns: repeat(2, 1fr); }
+      .review-grid { grid-template-columns: 1fr; }
+      .steps-row { grid-template-columns: 1fr; gap: 20px; }
+      .hero-content h1 { font-size: 1.9rem; }
+      .cta-section h2 { font-size: 1.6rem; }
+    }
+    @media (max-width: 480px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .container { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="container">
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <i class="fas fa-ghost"></i> Ghosterx Digital
+    </a>
+    <div class="nav-controls">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#produk">Produk</a></li>
+        <li><a href="#keunggulan">Keunggulan</a></li>
+        <li><a href="#cara-order">Cara Order</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://shopee.co.id/ghosterx" target="_blank" rel="noopener">Toko Shopee</a></li>
+      </ul>
+      <button class="darkmode-toggle" id="darkmodeBtn" title="Toggle dark mode">
+        <i class="fas fa-moon" id="darkmodeIcon"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="container">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="greeting">
+        <i class="fas fa-headset"></i>
+        Server Voice Chat Profesional
+      </div>
+      <h1>Solusi <span>Voice Server</span><br>Terbaik untuk Tim Kamu</h1>
+      <div class="subtitle">TeamSpeak3 · Mumble · TeaSpeak</div>
+      <p class="description">
+        Ghosterx Digital menyediakan layanan server voice chat berkualitas tinggi untuk gaming, komunitas, dan kebutuhan tim kamu. Setup cepat, harga terjangkau, support responsif.
+      </p>
+      <div class="hero-cta">
+        <a href="https://shopee.co.id/ghosterx" target="_blank" class="btn-primary">
+          <i class="fas fa-shopping-bag"></i> Lihat Toko Shopee
+        </a>
+        <a href="https://adjibayu.biz.id/go/chatshopee" target="_blank" class="btn-secondary">
+          <i class="fab fa-whatsapp"></i> Chat WhatsApp
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-badge">
+          <div class="stat-icon"><i class="fas fa-star"></i></div>
+          <div>
+            <span class="stat-num">4.9 ⭐</span>
+            <span class="stat-lbl">Rating Toko</span>
+          </div>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-icon"><i class="fas fa-comments"></i></div>
+          <div>
+            <span class="stat-num">100%</span>
+            <span class="stat-lbl">Performa Chat</span>
+          </div>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+          <div>
+            <span class="stat-num">Instant</span>
+            <span class="stat-lbl">Pengiriman</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <div class="server-card-visual">
+        <div class="vc-header">
+          <div class="vc-icon"><i class="fas fa-server"></i></div>
+          <div>
+            <div class="vc-title">Ghosterx Server</div>
+            <div class="vc-sub"><span class="vc-status-dot"></span>Online · Low Latency</div>
+          </div>
+        </div>
+        <div class="vc-users">
+          <div class="vc-user">
+            <div class="vc-user-avatar" style="background: linear-gradient(135deg,#14B8A6,#0f8b7a)">G</div>
+            <span class="vc-user-name">GhostAdmin</span>
+            <i class="fas fa-microphone vc-user-icon"></i>
+          </div>
+          <div class="vc-user">
+            <div class="vc-user-avatar" style="background: linear-gradient(135deg,#6366f1,#8b5cf6)">P</div>
+            <span class="vc-user-name">Player_01</span>
+            <i class="fas fa-microphone vc-user-icon"></i>
+          </div>
+          <div class="vc-user">
+            <div class="vc-user-avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444)">R</div>
+            <span class="vc-user-name">Ranger_X</span>
+            <i class="fas fa-microphone-slash vc-user-icon" style="color:#94a3b8"></i>
+          </div>
+          <div class="vc-user">
+            <div class="vc-user-avatar" style="background: linear-gradient(135deg,#10b981,#059669)">S</div>
+            <span class="vc-user-name">SniperPro</span>
+            <i class="fas fa-microphone vc-user-icon"></i>
+          </div>
+        </div>
+        <div class="vc-ping">
+          <i class="fas fa-signal" style="color: var(--teal)"></i>
+          Ping: <span>12ms</span> · Uptime: <span>99.9%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUK -->
+<div id="produk">
+  <div class="container">
+    <section>
+      <h2 class="section-title">Produk Unggulan</h2>
+      <div class="products-grid">
+
+        <!-- TeamSpeak3 -->
+        <div class="product-card">
+          <div class="product-badge"><i class="fas fa-fire"></i> Terlaris</div>
+          <div class="product-logo-wrap">
+            <img src="https://www.teamspeak.com/images/ts5_logo.png" alt="TeamSpeak3"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="product-icon-fallback" style="display:none"><i class="fas fa-headset"></i></div>
+          </div>
+          <div class="product-name">TeamSpeak3</div>
+          <p class="product-desc">Server voice chat paling populer untuk gaming. Latensi sangat rendah, stabil, dan mendukung hingga 32 slot player per server.</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check-circle"></i> 32 Slot per bulan</li>
+            <li><i class="fas fa-check-circle"></i> Low latency gaming</li>
+            <li><i class="fas fa-check-circle"></i> Enkripsi & keamanan tinggi</li>
+            <li><i class="fas fa-check-circle"></i> Support setup inkluded</li>
+          </ul>
+          <div class="product-price-row">
+            <div>
+              <div class="product-price">Rp 55.000</div>
+              <div class="product-price-label">per bulan</div>
+            </div>
+          </div>
+          <a href="https://id.shp.ee/sYP2Pcjo" target="_blank" rel="noopener" class="btn-shopee">
+            <i class="fas fa-shopping-cart"></i> Beli di Shopee
+          </a>
+        </div>
+
+        <!-- Mumble -->
+        <div class="product-card">
+          <div class="product-badge"><i class="fas fa-shield-alt"></i> Open Source</div>
+          <div class="product-logo-wrap">
+            <img src="https://wiki.mumble.info/images/thumb/5/5a/Mumble_logo.svg/240px-Mumble_logo.svg.png" alt="Mumble"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="product-icon-fallback" style="display:none"><i class="fas fa-volume-up"></i></div>
+          </div>
+          <div class="product-name">Mumble / Mumla</div>
+          <p class="product-desc">Alternatif open-source gratis dengan audio jernih. Cocok untuk komunitas besar yang butuh server voice privat tanpa biaya lisensi.</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check-circle"></i> Unlimited slot</li>
+            <li><i class="fas fa-check-circle"></i> Audio HD crystal clear</li>
+            <li><i class="fas fa-check-circle"></i> 100% open source</li>
+            <li><i class="fas fa-check-circle"></i> Support Android & iOS</li>
+          </ul>
+          <div class="product-price-row">
+            <div>
+              <div class="product-price">Rp 55.000</div>
+              <div class="product-price-label">per bulan</div>
+            </div>
+          </div>
+          <a href="https://id.shp.ee/aDxnwaVN" target="_blank" rel="noopener" class="btn-shopee">
+            <i class="fas fa-shopping-cart"></i> Beli di Shopee
+          </a>
+        </div>
+
+        <!-- TeaSpeak -->
+        <div class="product-card">
+          <div class="product-badge"><i class="fas fa-users"></i> 1024 Slot</div>
+          <div class="product-logo-wrap">
+            <div class="product-icon-fallback"><i class="fas fa-mug-hot" style="color: #e07b54;"></i></div>
+          </div>
+          <div class="product-name">TeaSpeak</div>
+          <p class="product-desc">Server TeaSpeak dengan kapasitas besar hingga 1024 slot. Pilihan tepat untuk komunitas gaming besar atau event online skala besar.</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check-circle"></i> 1024 slot kapasitas</li>
+            <li><i class="fas fa-check-circle"></i> Kompatibel klien TS3</li>
+            <li><i class="fas fa-check-circle"></i> Multi virtual server</li>
+            <li><i class="fas fa-check-circle"></i> Cocok untuk event besar</li>
+          </ul>
+          <div class="product-price-row">
+            <div>
+              <div class="product-price">Rp 55.000</div>
+              <div class="product-price-label">per bulan</div>
+            </div>
+          </div>
+          <a href="https://id.shp.ee/FazJ8arU" target="_blank" rel="noopener" class="btn-shopee">
+            <i class="fas fa-shopping-cart"></i> Beli di Shopee
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- KEUNGGULAN -->
+<div id="keunggulan">
+  <div class="container">
+    <section>
+      <h2 class="section-title">Mengapa Pilih Kami?</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-bolt"></i></div>
+          <div class="why-title">Pengiriman Instan</div>
+          <p class="why-desc">Server aktif langsung setelah pembayaran dikonfirmasi. Tidak perlu menunggu lama.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-headset"></i></div>
+          <div class="why-title">Support Responsif</div>
+          <p class="why-desc">Tim kami siap membantu konfigurasi dan troubleshooting server kapan pun kamu butuhkan.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-tag"></i></div>
+          <div class="why-title">Harga Terjangkau</div>
+          <p class="why-desc">Mulai dari Rp 35.000/bulan. Kualitas server premium dengan harga yang bersahabat.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="why-title">Server Aman & Stabil</div>
+          <p class="why-desc">Uptime 99.9%, proteksi DDoS, dan koneksi stabil untuk pengalaman bermain tanpa gangguan.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-cogs"></i></div>
+          <div class="why-title">Setup Mudah</div>
+          <p class="why-desc">Panduan setup lengkap disertakan. Bahkan pemula pun bisa langsung menggunakan server.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-sync-alt"></i></div>
+          <div class="why-title">Perpanjang Mudah</div>
+          <p class="why-desc">Perpanjang berlangganan kapan saja langsung melalui Shopee Chat atau WhatsApp.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-certificate"></i></div>
+          <div class="why-title">Terpercaya</div>
+          <p class="why-desc">Rating toko 4.9/5 dari 19 ulasan pembeli yang puas di Shopee Indonesia.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-network-wired"></i></div>
+          <div class="why-title">Lokasi Server ID</div>
+          <p class="why-desc">Server berlokasi di Indonesia untuk latensi rendah dan koneksi optimal bagi gamer lokal.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- STATS & ULASAN -->
+<div id="ulasan">
+  <div class="container">
+    <section>
+      <h2 class="section-title">Kepercayaan Pembeli</h2>
+      <div class="store-stats">
+        <div class="store-stat-card">
+          <div class="big-num">4.9 ⭐</div>
+          <div class="big-label">Rating Toko Shopee</div>
+        </div>
+        <div class="store-stat-card">
+          <div class="big-num">19+</div>
+          <div class="big-label">Penilaian Pembeli</div>
+        </div>
+        <div class="store-stat-card">
+          <div class="big-num">100%</div>
+          <div class="big-label">Performa Chat</div>
+        </div>
+        <div class="store-stat-card">
+          <div class="big-num">5</div>
+          <div class="big-label">Produk Tersedia</div>
+        </div>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Server TeamSpeak-nya stabil banget, ping rendah dan langsung aktif setelah bayar. Recommended!</p>
+          <div class="review-author">
+            <div class="review-author-avatar">R</div>
+            Rizky A. · TeamSpeak3
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Seller responsif, bantu setup dari awal. TeaSpeak 1024 slot-nya mantap buat event clan gaming kami.</p>
+          <div class="review-author">
+            <div class="review-author-avatar">D</div>
+            Dimas P. · TeaSpeak
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Mumble server-nya jernih banget audionya, cocok buat komunitas. Harga juga bersaing.</p>
+          <div class="review-author">
+            <div class="review-author-avatar">A</div>
+            Andi S. · Mumble
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- CARA ORDER -->
+<div id="cara-order">
+  <div class="container">
+    <section>
+      <h2 class="section-title">Cara Order</h2>
+      <div class="steps-row">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-title">Pilih Produk</div>
+          <p class="step-desc">Kunjungi toko Shopee Ghosterx Digital dan pilih server yang sesuai kebutuhan kamu.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-title">Lakukan Pembayaran</div>
+          <p class="step-desc">Bayar melalui metode pembayaran Shopee (ShopeePay, transfer bank, dll).</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-title">Terima Data Server</div>
+          <p class="step-desc">Data akses server dikirim otomatis melalui Shopee Chat setelah pembayaran dikonfirmasi.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-title">Server Aktif!</div>
+          <p class="step-desc">Langsung gunakan servermu. Hubungi kami jika butuh bantuan setup konfigurasi.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<div class="container">
+  <div class="cta-section">
+    <h2>Siap Punya Server Sendiri?</h2>
+    <p>Jangan biarkan lag dan gangguan merusak pengalaman bermain. Dapatkan server voice chat stabil dan terpercaya sekarang.</p>
+    <div class="cta-buttons">
+      <a href="https://adjibayu.biz.id/go/chatshopee" target="_blank" rel="noopener" class="btn-cta-wa">
+        <i class="fab fa-whatsapp"></i> Chat WhatsApp
+      </a>
+      <a href="https://shopee.co.id/ghosterx" target="_blank" rel="noopener" class="btn-cta-shopee">
+        <i class="fas fa-shopping-bag"></i> Beli di Shopee
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div id="faq">
+  <div class="container">
+    <section>
+      <h2 class="section-title">Pertanyaan Umum</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            Berapa lama server aktif setelah pembayaran?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Server aktif instan setelah pembayaran terverifikasi di Shopee. Data akses langsung dikirim melalui chat Shopee, biasanya dalam hitungan menit.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            Apakah bisa custom nama server dan password?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Ya! Kamu bisa request custom nama server, password, dan beberapa konfigurasi dasar. Hubungi kami via Shopee Chat atau WhatsApp saat melakukan order.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            Apa bedanya TeamSpeak3, Mumble, dan TeaSpeak?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">TeamSpeak3 adalah standar industri gaming dengan lisensi resmi dan fitur lengkap (32 slot). Mumble adalah alternatif open-source dengan audio jernih tanpa batasan slot. TeaSpeak kompatibel dengan klien TS3 namun mendukung hingga 1024 slot, cocok untuk komunitas besar.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            Apakah ada garansi jika server bermasalah?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Ya, kami memberikan garansi dan support teknis. Jika server mengalami gangguan di luar kendali pengguna, kami siap membantu melalui WhatsApp atau Shopee Chat.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            Bagaimana cara perpanjang berlangganan?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Kamu cukup melakukan pembelian ulang di toko Shopee kami atau hubungi langsung via WhatsApp untuk perpanjangan. Kami akan memastikan servermu tidak mati saat perpanjangan dilakukan.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-social">
+    <a href="https://shopee.co.id/ghosterx" target="_blank" title="Shopee"><i class="fas fa-shopping-bag"></i></a>
+    <a href="https://adjibayu.biz.id/go/chatshopee" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <div class="footer-links">
+    <a href="#produk">Produk</a>
+    <a href="#keunggulan">Keunggulan</a>
+    <a href="#cara-order">Cara Order</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://shopee.co.id/ghosterx" target="_blank">Shopee</a>
+  </div>
+  <p>© 2026 Ghosterx Digital. Semua hak dilindungi.</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" title="Kembali ke atas">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Dark mode
+  const body = document.body;
+  const darkmodeBtn = document.getElementById('darkmodeBtn');
+  const darkmodeIcon = document.getElementById('darkmodeIcon');
+
+  const saved = localStorage.getItem('ghosterx-theme');
+  if (saved === 'dark') {
+    body.classList.add('dark-mode');
+    darkmodeIcon.className = 'fas fa-sun';
+  }
+
+  darkmodeBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const isDark = body.classList.contains('dark-mode');
+    darkmodeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    localStorage.setItem('ghosterx-theme', isDark ? 'dark' : 'light');
+  });
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('active'));
+  });
+
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('show', window.scrollY > 400);
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
